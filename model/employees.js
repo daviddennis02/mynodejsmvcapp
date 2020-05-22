@@ -1,3 +1,6 @@
+
+const db = require('../db');
+
 const employees = [
     {
         id: 1,
@@ -22,7 +25,14 @@ const employees = [
     },
 ];
 
-exports.list = () => employees;
-exports.view = (id) => {
-    employees.find(e => e.id == id);
+exports.list = async () => {
+    const { rows } = await db.query('SELECT * FROM employee');
+    return rows;
+}
+
+exports.view = async (id) => {
+    // return employees.find(e => e.id == id); // NOTE: WE forgot to add return.
+
+    const { rows } = await db.query('SELECT * FROM employee WHERE id = $1', [id]);
+    return rows.length ? rows[0] : null;
 };

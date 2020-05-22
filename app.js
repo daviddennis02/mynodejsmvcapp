@@ -1,18 +1,16 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
-const dbConfig = require('./db/dbconf');
+// const dbConfig = require('./db/dbconf');
 
 
 // Access library attributes from the imported modules
-var employee = require('./routes/employee')
-var routes = require('./routes/index')
+// var employee = require('./routes/employee')
+// var routes = require('./routes/index')
 const orgsRouter = require('./routes/orgs')
 const employeesRouter = require('./routes/employees');
 var app = express()
 
-// Use the set() method to store values
-app.set('port', process.env.PORT || 5005)
 
 // Set EJS engine as the default engine
 app.set('view engine', 'ejs')
@@ -33,13 +31,15 @@ app.use('/employees', employeesRouter)
 // app.get('/employee/:id/delete', employee.delete)
 // app.get('/employee/:id/edit', employee.edit)
 // app.get('/employee/:id/view', employee.view)
-app.get('/', routes)
+// app.get('/', routes)
 
 // Express routes for the HTTP 'POST' methods
-app.post('/employee/add', employee.save)
-app.post('/employee/:id/edit', employee.update)
+// app.post('/employee/add', employee.save)
+// app.post('/employee/:id/edit', employee.update)
 
 // Set a port for the app to listen on
-app.listen(app.settings.port, function () {
-    console.log('Server is running on Port 5005. Press CTRL+C to stop server.')
-})
+const PORT = process.env.PORT || 5005;
+
+app.listen(PORT, function () {
+    console.log(`Server is running on Port ${PORT}. Press CTRL+C to stop server.`)
+});

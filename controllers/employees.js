@@ -1,18 +1,20 @@
 const employeesModel = require('../model/employees');
 
-exports.list = (req, res) => {
+exports.list = async (req, res) => {
+    const data = await employeesModel.list();
+
     const context = {
         title: "Employees",
-        data: employeesModel.list()
+        data: data,
     };
     res.render("employees/list", context);
 };
 
-exports.view = (req, res) => {
-    console.log(employeesModel.view(req.params.id));
+exports.view = async (req, res) => {
+    const data = await employeesModel.view(req.params.id);
     const context = {
         title: "Employees",
-        data: employeesModel.view(req.params.id)
+        data: data,
     };
     res.render("employees/view", context);
 };
