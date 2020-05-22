@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crud sample using PostgreSQL and NodeJs - <%=title%></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<div class="page-header">
+    <h2><%=title%></h2>
+</div>
+<div class="page-data">
+    <div class="data-btn">
+        <div class="data-table">
+                            
+                       
+            <form action="/employee/:id/edit" method="POST">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="<%=data[0].name%>" required>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" value="<%=data[0].email%>" required>
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" value="<%=data[0].address%>" required>
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" id="phone" value="<%=data[0].phone%>" required>
+                <button type="submit">Update Employee</button>
+            </form> 
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

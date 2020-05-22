@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crud sample using PostgreSQL and NodeJs - <%=title%></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<div class="page-header">
+    <h2><%=title%></h2>
+</div>
+<div class="page-data">
+
+    <div class="data-table">
+       
+            <% if(data){ %>
+            <div>
+                <div><%=data.id%></div>
+                <div><%=data.name%></div>
+                <div><%=data.email%></div>
+                <div><%=data.address%></div>
+                <div><%=data.phone%></div>
+                <div>
+                    <a class="a-inside edit" href="/employees/<%=data.id%>/edit">Edit</a>
+                    <a class="a-inside edit" href="/employees/list">Back</a>
+                </div>
+            </div>
+            <% } %>
+    </div>
+</div>
+</body>
+
+</html>
