@@ -24,8 +24,8 @@
                 <th width="120px">Action</th>
             </tr>
 
-            <% if(data.length){
-for(var i = 0;i < data.length;i++) { %>
+            <% if (data.length) {
+            for(var i = 0;i < data.length;i++) { %>
             <tr>
                 <td><%=(i+1)%></td>
                 <td><%=data[i].name%></td>
@@ -33,15 +33,15 @@ for(var i = 0;i < data.length;i++) { %>
                 <td><%=data[i].address%></td>
                 <td><%=data[i].phone%></td>
                 <td>
-                    <a class="a-inside edit" href="/employee/<%=data[i].id%>/view">View</a>
-                    <a class="a-inside edit" href="/employee/<%=data[i].id%>/edit">Edit</a>
-                    <a class="a-inside delete" href="../employee/<%=data[i].id%>/delete">Delete</a>
+                    <a class="a-inside edit" href="/employees/<%=data[i].id%>">View</a>
+                    <a class="a-inside edit" href="/employees/<%=data[i].id%>/edit">Edit</a>
+                    <a class="a-inside delete" href="../employees/<%=data[i].id%>/delete">Delete</a>
                 </td>
             </tr>
             <% }
-}else{ %>
+            } else{ %>
             <tr>
-                <td colspan="6">No user</td>
+                <td colspan="6">No Employees</td>
             </tr>
             <% } %>
         </table>
